@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 #region AdditionalNamespaces
 using Chinook.Data.Entities;
 using Chinook.Data.POCOs;
+using Chinook.Data.DTOs;
 using ChinookSystem.DAL;
 using System.ComponentModel;
 
@@ -50,6 +51,28 @@ namespace ChinookSystem.BLL
                 //it is NOT C#
                 return results.ToList();
             }
-        }
+        }//eom
+
+        [DataObjectMethod(DataObjectMethodType.Select, false)]
+        public List<ArtistAlbumReleases> ArtistAlbumReleases_List()
+        {
+            using (var context = new ChinookContext())
+            {
+                var results = from x in context.Albums
+                              group x by x.Artist.Name into result
+                              select new ArtistAlbumReleases
+                              {
+                                  Artist = result.Key,
+                                  Albums = (from y in result
+                                           select new AlbumReleases
+                                           {
+                                               Title = y.Title,
+                                               RYear = y.ReleaseYear,
+                                               Label = y.ReleaseLabel
+                                           }).ToList()
+                              };
+                return results.ToList();
+            }
+        }//eom
     }
 }

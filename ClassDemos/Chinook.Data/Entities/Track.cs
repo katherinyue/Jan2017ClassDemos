@@ -35,4 +35,4 @@ namespace Chinook.Data.Enitities
         //public virtual ICollection<InvoiceLine> InvoiceLines{get;set;}
 
     }
-+}
+}
