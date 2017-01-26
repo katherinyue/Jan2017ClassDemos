@@ -19,6 +19,7 @@ namespace Chinook.Data.Entities
         public string Name { get; set; }
 
         //navigation properties
+        //the virtual property Albums point to all children of the parent instance
         public virtual ICollection<Album> Albums { get; set; }
     }
 }

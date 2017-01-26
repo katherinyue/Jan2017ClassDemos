@@ -22,6 +22,7 @@ namespace Chinook.Data.Entities
         public string ReleaseLabel { get; set; }
 
         //navigation properties
+        //the virtual Artist property points toa single parent
         public virtual Artist Artist { get; set; }
 
     }
