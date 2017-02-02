@@ -53,6 +53,7 @@ namespace ChinookSystem.BLL
             }
         }//eom
 
+
         [DataObjectMethod(DataObjectMethodType.Select, false)]
         public List<ArtistAlbumReleases> ArtistAlbumReleases_List()
         {
@@ -74,5 +75,19 @@ namespace ChinookSystem.BLL
                 return results.ToList();
             }
         }//eom
+
+        #region CRUD
+        [DataObjectMethod(DataObjectMethodType.Select, false)]
+        public List<Album> Albums_GetbyTitle(string title)
+        {
+            using (var context = new ChinookContext())
+            {
+                var results = from x in context.Albums
+                              where x.Title.Contains(title)
+                              select x;
+                return results.ToList();
+            }
+        }
+        #endregion
     }
 }

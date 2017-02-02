@@ -97,6 +97,9 @@
                                   <asp:MenuItem Text="BootStrap Tabs"
                                      NavigateUrl="~/SamplePages/BootStrapTabs.aspx">
                                 </asp:MenuItem>
+                                  <asp:MenuItem Text="CRUD in Tabs"
+                                     NavigateUrl="~/SamplePages/CRUDReview.aspx">
+                                </asp:MenuItem>
                             </asp:MenuItem>
                              <asp:MenuItem Text="About" NavigateUrl="~/About.aspx"></asp:MenuItem>
                             <asp:MenuItem Text="Contact" NavigateUrl="~/Contact.aspx"></asp:MenuItem>
