@@ -5,6 +5,10 @@ using System.Web;
 using System.Web.UI;
 using Website;
 
+#region Additional Namespaces
+using ChinookSystem.BLL.Security;
+using Chinook.Data.Enitities.Security;
+#endregion
 public partial class Account_Login : Page
 {
         protected void Page_Load(object sender, EventArgs e)
@@ -23,8 +27,8 @@ public partial class Account_Login : Page
             if (IsValid)
             {
                 // Validate the user password
-                var manager = new UserManager();
-                ApplicationUser user = manager.Find(UserName.Text, Password.Text);
+                var manager = new Website.UserManager();
+            Website.ApplicationUser user = manager.Find(UserName.Text, Password.Text);
                 if (user != null)
                 {
                     IdentityHelper.SignIn(manager, user, RememberMe.Checked);
